@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Factory News</string>
+
+    <string name="textNoInternet">No internet connection!</string>
+    <string name="dialogTitle">Greška</string>
+    <string name="dialogMessage">Ups, došlo je do pogreške.</string>
+    <string name="alertNegativeButtonText">U REDU</string>
+</resources>
