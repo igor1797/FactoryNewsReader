@@ -10,7 +10,7 @@ import hr.ferit.igorkuridza.factorynewsreader.persistence.NewsRoomRepository
 import hr.ferit.igorkuridza.factorynewsreader.presentation.SingleNewsDetailsActivityPresenter
 import hr.ferit.igorkuridza.factorynewsreader.ui.base.BaseActivity
 import hr.ferit.igorkuridza.factorynewsreader.ui.adapters.NewsPagerAdapter
-import kotlinx.android.synthetic.main.activity_details_news_activity.*
+import kotlinx.android.synthetic.main.activity_details_news_single.*
 
 class SingleNewsDetailsActivity(): BaseActivity(), ViewPager.OnPageChangeListener, SingleNewsDetailsActivityContract.View {
 
@@ -19,7 +19,7 @@ class SingleNewsDetailsActivity(): BaseActivity(), ViewPager.OnPageChangeListene
         NewsPagerAdapter(supportFragmentManager)
     }
 
-    override fun getLayoutResourceId() = R.layout.activity_details_news_activity
+    override fun getLayoutResourceId() = R.layout.activity_details_news_single
 
     override fun setUpUI() {
         presenter.setView(this)
