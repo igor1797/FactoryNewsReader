@@ -10,7 +10,7 @@ class NewsPagerAdapter(fragmentManager: FragmentManager): FragmentPagerAdapter(f
     private val newsList = mutableListOf<News>()
 
     override fun getItem(position: Int)
-            = SingleNewsDetailsFragment.newInstance(newsList[position].newsTitle, newsList[position].newsDescription, newsList[position].newsImagePath)
+            = SingleNewsDetailsFragment.newInstance(newsList[position])
 
     override fun getCount() = newsList.size
 

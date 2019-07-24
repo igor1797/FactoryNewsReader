@@ -1,6 +1,5 @@
 package hr.ferit.igorkuridza.factorynewsreader.networking
 
-import hr.ferit.igorkuridza.factorynewsreader.model.News
 import hr.ferit.igorkuridza.factorynewsreader.model.NewsResponse
 import retrofit2.Call
 import retrofit2.http.GET

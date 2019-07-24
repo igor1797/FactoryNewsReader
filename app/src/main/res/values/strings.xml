@@ -5,4 +5,5 @@
     <string name="dialogTitle">Greška</string>
     <string name="dialogMessage">Ups, došlo je do pogreške.</string>
     <string name="alertNegativeButtonText">U REDU</string>
+    <string name="no_data">No data</string>
 </resources>

@@ -19,6 +19,16 @@
 
    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+   <TextView
+           android:id="@+id/noData"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:visibility="gone"
+           android:gravity="center"
+           android:text="@string/no_data"/>
+
    <ProgressBar
            android:id="@+id/progressBar"
            android:layout_width="wrap_content"

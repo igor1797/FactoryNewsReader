@@ -1,11 +1,8 @@
 package hr.ferit.igorkuridza.factorynewsreader.presentation
 
-import android.util.Log
-import android.view.View
+
 import hr.ferit.igorkuridza.factorynewsreader.common.RESPONSE_OK
-import hr.ferit.igorkuridza.factorynewsreader.common.convertCodeToMessage
 import hr.ferit.igorkuridza.factorynewsreader.common.dataOlderThanFiveMinutes
-import hr.ferit.igorkuridza.factorynewsreader.common.displayToast
 import hr.ferit.igorkuridza.factorynewsreader.model.News
 import hr.ferit.igorkuridza.factorynewsreader.model.NewsResponse
 import hr.ferit.igorkuridza.factorynewsreader.networking.interactors.NewsInteractor
@@ -19,7 +16,7 @@ import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainActivityPresentation(val newsInteractor: NewsInteractor, val repository: NewsRepository): MainActivityContract.Presenter {
+class MainActivityPresentation(private val newsInteractor: NewsInteractor, private val repository: NewsRepository): MainActivityContract.Presenter {
 
     private lateinit var view: MainActivityContract.View
 

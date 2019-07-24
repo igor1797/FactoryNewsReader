@@ -2,7 +2,6 @@ package hr.ferit.igorkuridza.factorynewsreader.ui.activities.main
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import hr.ferit.igorkuridza.factorynewsreader.R
 import hr.ferit.igorkuridza.factorynewsreader.common.*
@@ -42,14 +41,23 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
 
     private fun getNews() = presenter.getNews()
 
-    override fun onNoInternetConnection() = showPopUpDialog()
+    override fun onNoInternetConnection() {
+        showPopUpDialog()
+        progressBar.gone()
+        noData.visible()
+    }
 
     override fun onGetNewsSuccessful(news: List<News>) {
         newsAdapter.setNews(news)
-        progressBar.visibility = View.GONE
+        progressBar.gone()
+        noData.gone()
     }
 
-    override fun onSomethingWentWrong(code: Int) = displayToast(convertCodeToMessage(code))
+    override fun onSomethingWentWrong(code: Int) {
+        displayToast(convertCodeToMessage(code))
+        noData.visible()
+        progressBar.gone()
+    }
 
     private fun showPopUpDialog(){
         val dialog = AlertDialog.Builder(this)
@@ -62,9 +70,7 @@ class MainActivity : BaseActivity(), MainActivityContract.View {
     private fun onNewsClicked(news: News){
         val intent: Intent = Intent(this ,
             SingleNewsDetailsActivity::class.java).apply {
-            putExtra(EXTRA_NEWS_TITLE, news.newsTitle)
-            putExtra(EXTRA_NEWS_DESCRIPTION, news.newsDescription)
-            putExtra(EXTRA_NEWS_IMAGE_PATH, news.newsImagePath)
+            putExtra(EXTRA_SINGLE_NEWS, news)
         }
         startActivity(intent)
     }

@@ -2,9 +2,7 @@ package hr.ferit.igorkuridza.factorynewsreader.ui.activities.single
 
 import androidx.viewpager.widget.ViewPager
 import hr.ferit.igorkuridza.factorynewsreader.R
-import hr.ferit.igorkuridza.factorynewsreader.common.EXTRA_NEWS_DESCRIPTION
-import hr.ferit.igorkuridza.factorynewsreader.common.EXTRA_NEWS_IMAGE_PATH
-import hr.ferit.igorkuridza.factorynewsreader.common.EXTRA_NEWS_TITLE
+import hr.ferit.igorkuridza.factorynewsreader.common.EXTRA_SINGLE_NEWS
 import hr.ferit.igorkuridza.factorynewsreader.model.News
 import hr.ferit.igorkuridza.factorynewsreader.persistence.NewsRoomRepository
 import hr.ferit.igorkuridza.factorynewsreader.presentation.SingleNewsDetailsActivityPresenter
@@ -25,16 +23,13 @@ class SingleNewsDetailsActivity(): BaseActivity(), ViewPager.OnPageChangeListene
         presenter.setView(this)
         setUpViewPager()
 
-        val title = intent.getStringExtra(EXTRA_NEWS_TITLE)
-        val description = intent.getStringExtra(EXTRA_NEWS_DESCRIPTION)
-        val image = intent.getStringExtra(EXTRA_NEWS_IMAGE_PATH)
-        val news = News(title!!, description!!, image!!)
+        val news = intent?.getParcelableExtra<News>(EXTRA_SINGLE_NEWS)
 
-        presenter.getCurrentItemPosition(news)
+        presenter.getCurrentItemPosition(news!!)
 
-        supportActionBar?.title = title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = news.newsTitle
     }
 
     private fun setUpViewPager(){
